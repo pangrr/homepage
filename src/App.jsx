@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Skeleton, ImageList, ImageListItem, ImageListItemBar, Container, Paper, Card, CardContent, Typography, CardActions, Button, CardMedia, Collapse } from '@mui/material'
+import { Skeleton, ImageList, ImageListItem, Box, Container, Paper, Card, CardContent, Typography, CardActions, Button, CardMedia, Collapse } from '@mui/material'
+import GitHubIcon from '@mui/icons-material/GitHub'
 import { MuiMarkdown, getOverrides } from 'mui-markdown'
 import { Highlight, themes } from 'prism-react-renderer'
 import wallet from './assets/wallet.gif'
 import article1Path from './assets/constForFunction.md'
+
 
 const markdownOverrides = {
   ...getOverrides({ Highlight, themes, theme: themes.okaidia, hideLineNumbers: true }),
@@ -23,7 +25,7 @@ function App() {
 
   return (
     <Container maxWidth="xl">
-      <Paper sx={{ p: 8 }}>
+      <Box sx={{ p: 8 }}>
         <ImageList cols={3} gap={32} variant='mansory'>
           <ImageListItem>
             <Card raised>
@@ -60,7 +62,8 @@ function App() {
             </ImageListItem>
           )}
         </ImageList>
-      </Paper>
+      </Box>
+      <Button onClick={() => window.open('https://github.com/pangrr/demo', '_blank')}  sx={{ position: 'fixed', top: 24, left: 32 }} startIcon={<GitHubIcon/>}>source code</Button>
     </Container>
   )
 
