@@ -2,7 +2,7 @@
   "name": "homepage",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://pangrr.github.io/",
+  "homepage": "https://pangrr.github.io/demo/",
   "type": "module",
   "scripts": {
     "dev": "vite",
