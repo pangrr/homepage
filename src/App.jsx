@@ -1,12 +1,30 @@
-import { useState } from 'react'
-import { Skeleton, ImageList, ImageListItem, ImageListItemBar, Container, Paper, Card, CardContent, Typography, CardActions, Button, CardMedia } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { Skeleton, ImageList, ImageListItem, ImageListItemBar, Container, Paper, Card, CardContent, Typography, CardActions, Button, CardMedia, Collapse } from '@mui/material'
+import { MuiMarkdown, getOverrides } from 'mui-markdown'
+import { Highlight, themes } from 'prism-react-renderer'
 import wallet from './assets/wallet.gif'
+import article1Path from './assets/constForFunction.md'
+
+const markdownOverrides = {
+  ...getOverrides({ Highlight, themes, theme: themes.vsDark, hideLineNumbers: true }),
+  h1: { component: 'h2' }
+}
 
 function App() {
+  const [article1, setArticle1] = useState('')
+  const [expandArticle1, setExpandArticle1] = useState(false)
+
+  useEffect(() => {
+    async function getMdFiles() {
+      setArticle1(await (await fetch(article1Path)).text())
+    }
+    getMdFiles()
+  }, [])
+
   return (
     <Container maxWidth="xl">
-      <Paper sx={{ p: 8, bgcolor: 'grey.900'}}>
-        <ImageList cols={3} gap={32}>
+      <Paper sx={{ p: 8, bgcolor: 'grey.900' }}>
+        <ImageList cols={3} gap={32} variant='mansory'>
           <ImageListItem>
             <Card raised>
               <CardMedia
@@ -15,8 +33,8 @@ function App() {
                 title="Wallet"
               />
               <CardContent>
-                <Typography variant="body">
-                  A simple ehtereum wallet
+                <Typography variant="h5">
+                  Ehtereum Wallet
                 </Typography>
               </CardContent>
               <CardActions>
@@ -25,17 +43,14 @@ function App() {
             </Card>
           </ImageListItem>
           <ImageListItem>
-            <Card sx={{ minWidth: 275 }} raised>
+            <Card raised>
               <CardContent>
-                <Typography variant="h5" component="div">
-                  const vs function
-                </Typography>
-                <Typography variant="body2">
-                  Avoid using const for functions.
-                </Typography>
+                <Collapse in={expandArticle1} collapsedSize={300}>
+                  <MuiMarkdown overrides={markdownOverrides}>{article1}</MuiMarkdown>
+                </Collapse>
               </CardContent>
               <CardActions>
-                <Button size="small">see why</Button>
+                <Button size="small" onClick={() => setExpandArticle1(!expandArticle1)}>{expandArticle1 ? 'collapse' : 'expand'}</Button>
               </CardActions>
             </Card>
           </ImageListItem>
