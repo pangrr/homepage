@@ -6,7 +6,7 @@ import wallet from './assets/wallet.gif'
 import article1Path from './assets/constForFunction.md'
 
 const markdownOverrides = {
-  ...getOverrides({ Highlight, themes, theme: themes.vsDark, hideLineNumbers: true }),
+  ...getOverrides({ Highlight, themes, theme: themes.okaidia, hideLineNumbers: true }),
   h1: { component: 'h2' }
 }
 
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Container maxWidth="xl">
-      <Paper sx={{ p: 8, bgcolor: 'grey.900' }}>
+      <Paper sx={{ p: 8 }}>
         <ImageList cols={3} gap={32} variant='mansory'>
           <ImageListItem>
             <Card raised>
@@ -56,7 +56,7 @@ function App() {
           </ImageListItem>
           {[...Array(5).keys()].map((i) =>
             <ImageListItem key={i}>
-              <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.900' }} width={432} height={475} />
+              <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.800' }} width={432} height={475} />
             </ImageListItem>
           )}
         </ImageList>
