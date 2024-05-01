@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Skeleton, ImageList, ImageListItem, ImageListItemBar, Container, Paper } from '@mui/material'
+import { Skeleton, ImageList, ImageListItem, ImageListItemBar, Container, Paper, Card, CardContent, Typography, CardActions, Button, CardMedia } from '@mui/material'
 import wallet from './assets/wallet.gif'
 
 function App() {
@@ -7,13 +7,37 @@ function App() {
     <Container maxWidth="xl">
       <Paper sx={{ p: 8 }}>
         <ImageList cols={3} gap={32}>
-          <ImageListItem sx={{ p: 2, borderRadius: 2, border: '1px solid', borderColor: 'grey.900', cursor: 'pointer' }} onClick={() => openTab('https://pangrr.github.io/wallet/')}>
-            <img src={wallet} />
-            <ImageListItemBar
-              title={'Wallet'}
-              subtitle={'A simple Ethereum wallet'}
-              position="below"
-            />
+          <ImageListItem>
+            <Card sx={{ minWidth: 275 }} raised>
+              <CardMedia
+                sx={{ height: 400 }}
+                image={wallet}
+                title="Wallet"
+              />
+              <CardContent>
+                <Typography variant="body">
+                  A simple ehtereum wallet
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" onClick={() => openTab('https://pangrr.github.io/wallet/')}>open wallet</Button>
+              </CardActions>
+            </Card>
+          </ImageListItem>
+          <ImageListItem>
+            <Card sx={{ minWidth: 275 }} raised>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  const vs function
+                </Typography>
+                <Typography variant="body2">
+                  Avoid using const for functions.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">see why</Button>
+              </CardActions>
+            </Card>
           </ImageListItem>
           {[...Array(5).keys()].map((i) =>
             <ImageListItem key={i}>
