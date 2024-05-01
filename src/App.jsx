@@ -56,7 +56,7 @@ function App() {
           </ImageListItem>
           {[...Array(5).keys()].map((i) =>
             <ImageListItem key={i}>
-              <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.800' }} width={432} height={475} />
+              <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.900' }} width={432} height={475} />
             </ImageListItem>
           )}
         </ImageList>
