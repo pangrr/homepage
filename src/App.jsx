@@ -5,10 +5,10 @@ import wallet from './assets/wallet.gif'
 function App() {
   return (
     <Container maxWidth="xl">
-      <Paper sx={{ p: 8 }}>
+      <Paper sx={{ p: 8, bgcolor: 'grey.900'}}>
         <ImageList cols={3} gap={32}>
           <ImageListItem>
-            <Card sx={{ minWidth: 275 }} raised>
+            <Card raised>
               <CardMedia
                 sx={{ height: 400 }}
                 image={wallet}
