@@ -4,7 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import { MuiMarkdown, getOverrides } from 'mui-markdown'
 import { Highlight, themes } from 'prism-react-renderer'
 import wallet from './assets/wallet.gif'
-import article1Path from './assets/constForFunction.md'
+import articlePath_constForFunctions from './assets/constForFunctions.md'
 
 
 const markdownOverrides = {
@@ -13,14 +13,14 @@ const markdownOverrides = {
 }
 
 function App() {
-  const [article1, setArticle1] = useState('')
-  const [expandArticle1, setExpandArticle1] = useState(false)
+  const [article_constForFunctions, setArticle_constForFunctions] = useState('')
+  const [expandArticle_constForFunctions, setExpandArticle_constForFunctions] = useState(false)
 
   useEffect(() => {
-    async function getMdFiles() {
-      setArticle1(await (await fetch(article1Path)).text())
+    async function getArticles() {
+      setArticle_constForFunctions(await (await fetch(articlePath_constForFunctions)).text())
     }
-    getMdFiles()
+    getArticles()
   }, [])
 
   return (
@@ -53,12 +53,12 @@ function App() {
             <ImageListItem>
               <Card raised>
                 <CardContent>
-                  <Collapse in={expandArticle1} collapsedSize={300}>
-                    <MuiMarkdown overrides={markdownOverrides}>{article1}</MuiMarkdown>
+                  <Collapse in={expandArticle_constForFunctions} collapsedSize={300}>
+                    <MuiMarkdown overrides={markdownOverrides}>{article_constForFunctions}</MuiMarkdown>
                   </Collapse>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" onClick={() => setExpandArticle1(!expandArticle1)}>{expandArticle1 ? 'collapse' : 'expand'}</Button>
+                  <Button size="small" onClick={() => setExpandArticle_constForFunctions(!expandArticle_constForFunctions)}>{expandArticle_constForFunctions ? 'collapse' : 'expand'}</Button>
                 </CardActions>
               </Card>
             </ImageListItem>
