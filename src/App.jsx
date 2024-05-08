@@ -4,6 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import { MuiMarkdown, getOverrides } from 'mui-markdown'
 import { Highlight, themes } from 'prism-react-renderer'
 import wallet from './assets/wallet.gif'
+import chat from './assets/chat.png'
 import articlePath_constForFunctions from './assets/constForFunctions.md'
 
 
@@ -59,6 +60,23 @@ function App() {
                 </CardContent>
                 <CardActions>
                   <Button size="small" onClick={() => setExpandArticle_constForFunctions(!expandArticle_constForFunctions)}>{expandArticle_constForFunctions ? 'collapse' : 'expand'}</Button>
+                </CardActions>
+              </Card>
+            </ImageListItem>
+            <ImageListItem>
+              <Card raised>
+                <CardMedia
+                  sx={{ height: 400 }}
+                  image={chat}
+                  title="Chat"
+                />
+                <CardContent>
+                  <Typography variant="h5">
+                    Telegram web app
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" onClick={() => openTab('https://pangrr.github.io/chat/')}>start chat</Button>
                 </CardActions>
               </Card>
             </ImageListItem>
