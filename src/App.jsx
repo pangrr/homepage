@@ -4,7 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import { MuiMarkdown, getOverrides } from 'mui-markdown'
 import { Highlight, themes } from 'prism-react-renderer'
 import wallet from './assets/wallet.gif'
-import chat from './assets/chat.png'
+import chat from './assets/chat.gif'
 import articlePath_constForFunctions from './assets/constForFunctions.md'
 
 
@@ -32,7 +32,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container maxWidth={false}>
-        <Box sx={{ p: 8, maxHeight: '100%' }}>
+        <Box sx={{ pt: 6, maxHeight: '100%' }}>
           <ImageList cols={3} gap={32} variant='mansory'>
             <ImageListItem>
               <Card raised>
@@ -54,7 +54,7 @@ function App() {
             <ImageListItem>
               <Card raised>
                 <CardMedia
-                  sx={{ height: 400 }}
+                  sx={{ height: 300 }}
                   image={chat}
                   title="Chat"
                 />
