@@ -31,7 +31,7 @@ function App() {
           <Button onClick={() => window.open('https://github.com/pangrr/demo', '_blank')} startIcon={<GitHubIcon />} color='inherit'>source code</Button>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="xl">
+      <Container maxWidth={false}>
         <Box sx={{ p: 8, maxHeight: '100%' }}>
           <ImageList cols={3} gap={32} variant='mansory'>
             <ImageListItem>
@@ -53,18 +53,6 @@ function App() {
             </ImageListItem>
             <ImageListItem>
               <Card raised>
-                <CardContent>
-                  <Collapse in={expandArticle_constForFunctions} collapsedSize={300}>
-                    <MuiMarkdown overrides={markdownOverrides}>{article_constForFunctions}</MuiMarkdown>
-                  </Collapse>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={() => setExpandArticle_constForFunctions(!expandArticle_constForFunctions)}>{expandArticle_constForFunctions ? 'collapse' : 'expand'}</Button>
-                </CardActions>
-              </Card>
-            </ImageListItem>
-            <ImageListItem>
-              <Card raised>
                 <CardMedia
                   sx={{ height: 400 }}
                   image={chat}
@@ -77,6 +65,18 @@ function App() {
                 </CardContent>
                 <CardActions>
                   <Button size="small" onClick={() => openTab('https://pangrr.github.io/chat/')}>start chat</Button>
+                </CardActions>
+              </Card>
+            </ImageListItem>
+            <ImageListItem>
+              <Card raised>
+                <CardContent>
+                  <Collapse in={expandArticle_constForFunctions} collapsedSize={300}>
+                    <MuiMarkdown overrides={markdownOverrides}>{article_constForFunctions}</MuiMarkdown>
+                  </Collapse>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" onClick={() => setExpandArticle_constForFunctions(!expandArticle_constForFunctions)}>{expandArticle_constForFunctions ? 'collapse' : 'expand'}</Button>
                 </CardActions>
               </Card>
             </ImageListItem>
