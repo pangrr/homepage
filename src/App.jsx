@@ -31,7 +31,7 @@ function App() {
           <Button onClick={() => window.open('https://github.com/pangrr/demo', '_blank')} startIcon={<GitHubIcon />} color='inherit'>source code</Button>
         </Toolbar>
       </AppBar>
-      <Container maxWidth={false}>
+      <Container maxWidth='xl'>
         <Box sx={{ pt: 6, maxHeight: '100%' }}>
           <ImageList cols={3} gap={32} variant='mansory'>
             <ImageListItem>
