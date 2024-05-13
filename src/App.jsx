@@ -5,6 +5,7 @@ import { MuiMarkdown, getOverrides } from 'mui-markdown'
 import { Highlight, themes } from 'prism-react-renderer'
 import wallet from './assets/wallet.gif'
 import chat from './assets/chat.gif'
+import call from './assets/call.png'
 import articlePath_constForFunctions from './assets/constForFunctions.md'
 
 
@@ -39,7 +40,6 @@ function App() {
                 <CardMedia
                   sx={{ height: 400 }}
                   image={wallet}
-                  title="Wallet"
                 />
                 <CardContent>
                   <Typography variant="h5">
@@ -56,7 +56,6 @@ function App() {
                 <CardMedia
                   sx={{ height: 300 }}
                   image={chat}
-                  title="Chat"
                 />
                 <CardContent>
                   <Typography variant="h5">
@@ -77,6 +76,22 @@ function App() {
                 </CardContent>
                 <CardActions>
                   <Button size="small" onClick={() => setExpandArticle_constForFunctions(!expandArticle_constForFunctions)}>{expandArticle_constForFunctions ? 'collapse' : 'expand'}</Button>
+                </CardActions>
+              </Card>
+            </ImageListItem>
+            <ImageListItem>
+              <Card raised>
+                <CardMedia
+                  sx={{ height: 400 }}
+                  image={call}
+                />
+                <CardContent>
+                  <Typography variant="h5">
+                    Video call
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" onClick={() => openTab('https://pangrr.github.io/call/')}>Start a call</Button>
                 </CardActions>
               </Card>
             </ImageListItem>
