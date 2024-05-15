@@ -22,7 +22,7 @@ function App() {
               <WebApp name='chat' title='Instant Message with Telegram' action='start chat' imageHeight={300} />
             </ImageListItem>
             <ImageListItem>
-              <Article name='constVsFunction' />
+              <Article name='highlightMainCode' collapsedSize={430} />
             </ImageListItem>
             <ImageListItem>
               <WebApp name='call' title='Video Chat' action='start call' imageHeight={400} />

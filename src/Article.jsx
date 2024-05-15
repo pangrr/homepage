@@ -1,14 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Card, CardContent, CardActions, Button, Collapse } from '@mui/material'
-import { MuiMarkdown, getOverrides } from 'mui-markdown'
-import { Highlight, themes } from 'prism-react-renderer'
+import { Card, CardContent, CardActions, Button, Collapse, Box } from '@mui/material'
+import Markdown from 'markdown-to-jsx'
+import { blueGrey } from '@mui/material/colors'
 
-const markdownOverrides = {
-	...getOverrides({ Highlight, themes, theme: themes.okaidia, hideLineNumbers: true }),
-	h1: { component: 'h2' }
-}
-
-export default function Article({ name }) {
+export default function Article({ name, collapsedSize = 0 }) {
 	const [content, setContent] = useState('')
 	const [expand, setExpand] = useState(false)
 
@@ -22,12 +17,28 @@ export default function Article({ name }) {
 
 	return <Card raised>
 		<CardContent>
-			<Collapse in={expand} collapsedSize={300}>
-				<MuiMarkdown overrides={markdownOverrides}>{content}</MuiMarkdown>
-			</Collapse>
+			{collapsedSize > 0 ?
+				<Collapse in={expand} collapsedSize={collapsedSize}>
+					<Markdown options={markdownOptions}>{content}</Markdown>
+				</Collapse>
+				:
+				<Markdown options={markdownOptions}>{content}</Markdown>
+			}
 		</CardContent>
-		<CardActions>
+		{collapsedSize > 0 && <CardActions>
 			<Button size='small' onClick={() => setExpand(!expand)}>{expand ? 'collapse' : 'expand'}</Button>
-		</CardActions>
+		</CardActions>}
 	</Card>
+}
+
+function Code({ children }) {
+	return <code style={{ backgroundColor: blueGrey[700] }}>
+		{children}
+	</code>
+}
+
+const markdownOptions = {
+	overrides: {
+		code: { component: Code }
+	}
 }
