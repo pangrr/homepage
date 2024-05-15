@@ -1,4 +1,4 @@
-# `const` for functions?
+# `const` vs 'function'?
 As a believer of 'important code first', it highlights the main logic to put functions down below. `function` position is flexible, `const` must be in order.
    
   

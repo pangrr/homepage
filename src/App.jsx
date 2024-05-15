@@ -1,30 +1,10 @@
-import { useEffect, useState } from 'react'
-import { Skeleton, ImageList, ImageListItem, Box, Container, AppBar, Toolbar, Card, CardContent, Typography, CardActions, Button, CardMedia, Collapse } from '@mui/material'
+import { Skeleton, ImageList, ImageListItem, Box, Container, AppBar, Toolbar, Card, CardContent, Typography, CardActions, Button, CardMedia } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { MuiMarkdown, getOverrides } from 'mui-markdown'
-import { Highlight, themes } from 'prism-react-renderer'
-import wallet from './assets/wallet.gif'
-import chat from './assets/chat.gif'
-import call from './assets/call.png'
-import articlePath_constForFunctions from './assets/constForFunctions.md'
+import Article from './Article'
+import WebApp from './WebApp'
 
-
-const markdownOverrides = {
-  ...getOverrides({ Highlight, themes, theme: themes.okaidia, hideLineNumbers: true }),
-  h1: { component: 'h2' }
-}
 
 function App() {
-  const [article_constForFunctions, setArticle_constForFunctions] = useState('')
-  const [expandArticle_constForFunctions, setExpandArticle_constForFunctions] = useState(false)
-
-  useEffect(() => {
-    async function getArticles() {
-      setArticle_constForFunctions(await (await fetch(articlePath_constForFunctions)).text())
-    }
-    getArticles()
-  }, [])
-
   return (
     <>
       <AppBar color='darkerBackground' enableColorOnDark>
@@ -36,64 +16,16 @@ function App() {
         <Box sx={{ pt: 6, maxHeight: '100%' }}>
           <ImageList cols={3} gap={32} variant='mansory'>
             <ImageListItem>
-              <Card raised>
-                <CardMedia
-                  sx={{ height: 400 }}
-                  image={wallet}
-                />
-                <CardContent>
-                  <Typography variant="h5">
-                    Ehtereum Wallet
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={() => openTab('https://pangrr.github.io/wallet/')}>open wallet</Button>
-                </CardActions>
-              </Card>
+              <WebApp name='wallet' title='Ehtereum Wallet' action='open wallet' imageHeight={400} />
             </ImageListItem>
             <ImageListItem>
-              <Card raised>
-                <CardMedia
-                  sx={{ height: 300 }}
-                  image={chat}
-                />
-                <CardContent>
-                  <Typography variant="h5">
-                    Telegram web app
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={() => openTab('https://pangrr.github.io/chat/')}>start chat</Button>
-                </CardActions>
-              </Card>
+              <WebApp name='chat' title='Instant Message with Telegram' action='start chat' imageHeight={300} />
             </ImageListItem>
             <ImageListItem>
-              <Card raised>
-                <CardContent>
-                  <Collapse in={expandArticle_constForFunctions} collapsedSize={300}>
-                    <MuiMarkdown overrides={markdownOverrides}>{article_constForFunctions}</MuiMarkdown>
-                  </Collapse>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={() => setExpandArticle_constForFunctions(!expandArticle_constForFunctions)}>{expandArticle_constForFunctions ? 'collapse' : 'expand'}</Button>
-                </CardActions>
-              </Card>
+              <Article name='constVsFunction' />
             </ImageListItem>
             <ImageListItem>
-              <Card raised>
-                <CardMedia
-                  sx={{ height: 400 }}
-                  image={call}
-                />
-                <CardContent>
-                  <Typography variant="h5">
-                    Video call
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={() => openTab('https://pangrr.github.io/call/')}>Start a call</Button>
-                </CardActions>
-              </Card>
+              <WebApp name='call' title='Video Chat' action='start call' imageHeight={400} />
             </ImageListItem>
             {[...Array(5).keys()].map((i) =>
               <ImageListItem key={i}>
@@ -105,10 +37,6 @@ function App() {
       </Container>
     </>
   )
-
-  function openTab(path) {
-    window.open(path, '_blank')
-  }
 }
 
 export default App
