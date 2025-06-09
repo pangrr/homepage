@@ -1,1 +1,1 @@
-Source code for https://pangrr.github.io/
+Source code for https://pangrr.github.io/resume/
