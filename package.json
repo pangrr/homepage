@@ -1,8 +1,8 @@
 {
-  "name": "mystory",
+  "name": "resume",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://pangrr.github.io/mystory/",
+  "homepage": "https://pangrr.github.io/resume/",
   "type": "module",
   "scripts": {
     "dev": "vite",
