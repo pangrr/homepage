@@ -1,1 +1,1 @@
-Source code for https://pangrr.github.io/resume/
+My personal home page: https://pangrr.github.io/homepage/

@@ -19,7 +19,7 @@ function App() {
         <Toolbar variant="dense">
           <Button
             onClick={() =>
-              window.open("https://github.com/pangrr/resume/", "_blank")
+              window.open("https://github.com/pangrr/homepage/", "_blank")
             }
             startIcon={<GitHubIcon />}
             color="inherit"
