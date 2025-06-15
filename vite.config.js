@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/homepage/",
+  base: "/useless-gallery/",
   plugins: [react()],
   assetsInclude: ["**/*.md"]
 })
