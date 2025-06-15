@@ -19,7 +19,7 @@ function App() {
         <Toolbar variant="dense">
           <Button
             onClick={() =>
-              window.open("https://github.com/pangrr/homepage/", "_blank")
+              window.open("https://github.com/pangrr/useless-gallery/", "_blank")
             }
             startIcon={<GitHubIcon />}
             color="inherit"
@@ -33,7 +33,7 @@ function App() {
           <ImageList cols={3} gap={32} variant="mansory">
             <ImageListItem>
               <WebApp
-                name="wallet"
+                name="useless-crypto-wallet"
                 title="Ehtereum Wallet"
                 action="open wallet"
                 imageHeight={400}
@@ -41,7 +41,7 @@ function App() {
             </ImageListItem>
             <ImageListItem>
               <WebApp
-                name="chat"
+                name="useless-telegram-client"
                 title="Instant Message with Telegram"
                 action="start chat"
                 imageHeight={300}
@@ -52,7 +52,7 @@ function App() {
             </ImageListItem>
             <ImageListItem>
               <WebApp
-                name="call"
+                name="useless-video-call"
                 title="Video Chat"
                 action="start call"
                 imageHeight={400}
